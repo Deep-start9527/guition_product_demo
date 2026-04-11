@@ -9,4 +9,4 @@
         ESP32 by Espressif Systems
             version : 3.3.7
 ##### 2. ESP32-IDF
-    - ESP-IDF version : 5.5.3
+    - ESP-IDF version : 5.5.4
