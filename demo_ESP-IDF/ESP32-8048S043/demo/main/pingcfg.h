@@ -1,9 +1,9 @@
 #ifndef __PINGCFG_H
 #define __PINGCFG_H
 
-#define ESP32_8048S070  1
+#define ESP32_8048S070  0
 #define ESP32_8048S050  0
-#define ESP32_8048S043  0
+#define ESP32_8048S043  1
 #define ESP32_4827S043  0
 
 #if ESP32_8048S070
