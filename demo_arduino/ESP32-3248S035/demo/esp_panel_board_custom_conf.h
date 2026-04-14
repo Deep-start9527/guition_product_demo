@@ -24,10 +24,22 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Please update the following macros to configure general panel /////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#define ESP32_3248S035C     (0)
+#define ESP32_3248S035R     (0)
+#define ESP32_3248S035N     (1)
+
 /**
  * @brief Board name
  */
-#define ESP_PANEL_BOARD_NAME                "custom:ESP32-3248S035"
+#if ESP32_3248S035C
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32-3248S035C"
+#elif ESP32_3248S035R
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32-3248S035R"
+#elif ESP32_3248S035N
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32-3248S035N"
+#endif
+
 
 /**
  * @brief Panel resolution configuration in pixels
@@ -133,18 +145,31 @@
  *
  * Set to `1` to enable touch panel support, `0` to disable
  */
+#if ESP32_3248S035C || ESP32_3248S035R
 #define ESP_PANEL_BOARD_USE_TOUCH               (1)
+#elif ESP32_3248S035N
+#define ESP_PANEL_BOARD_USE_TOUCH               (0)
+#endif
 
 #if ESP_PANEL_BOARD_USE_TOUCH
 /**
  * @brief Touch controller selection
  */
+#if ESP32_3248S035C
 #define ESP_PANEL_BOARD_TOUCH_CONTROLLER        GT911
-
 /**
  * @brief Touch bus type selection
  */
 #define ESP_PANEL_BOARD_TOUCH_BUS_TYPE          (ESP_PANEL_BUS_TYPE_I2C)
+#elif ESP32_3248S035R
+#define ESP_PANEL_BOARD_TOUCH_CONTROLLER        XPT2046
+/**
+ * @brief Touch bus type selection
+ */
+#define ESP_PANEL_BOARD_TOUCH_BUS_TYPE          (ESP_PANEL_BUS_TYPE_SPI)
+#endif
+
+
 
 #if (ESP_PANEL_BOARD_TOUCH_BUS_TYPE == ESP_PANEL_BUS_TYPE_I2C) || \
     (ESP_PANEL_BOARD_TOUCH_BUS_TYPE == ESP_PANEL_BUS_TYPE_SPI)
@@ -155,7 +180,12 @@
  * So it is not necessary to set the macro to `1`. For other drivers (like `Wire`), please set the macro to `1`
  * ensure that the host is initialized only once.
  */
+// #if ESP32_3248S035C
 #define ESP_PANEL_BOARD_TOUCH_BUS_SKIP_INIT_HOST        (0)     // 0/1. Typically set to 0
+// #elif ESP32_3248S035R
+// #define ESP_PANEL_BOARD_TOUCH_BUS_SKIP_INIT_HOST        (1)     // 0/1. Typically set to 0
+// #endif
+
 #endif
 
 /**
@@ -183,6 +213,23 @@
                                                                 // - For touchs with multiple addresses, set to 0 or
                                                                 //   the address. Like GT911, there are two addresses:
                                                                 //   0x5D(default) and 0x14
+#elif ESP_PANEL_BOARD_TOUCH_BUS_TYPE == ESP_PANEL_BUS_TYPE_SPI
+
+    /**
+     * @brief SPI bus
+     */
+    /* For general */
+    #define ESP_PANEL_BOARD_TOUCH_SPI_HOST_ID           (1)     // Typically set to 1
+#if !ESP_PANEL_BOARD_TOUCH_BUS_SKIP_INIT_HOST
+    /* For host */
+    #define ESP_PANEL_BOARD_TOUCH_SPI_IO_SCK            (14)
+    #define ESP_PANEL_BOARD_TOUCH_SPI_IO_MOSI           (13)
+    #define ESP_PANEL_BOARD_TOUCH_SPI_IO_MISO           (12)
+#endif
+    /* For panel */
+    #define ESP_PANEL_BOARD_TOUCH_SPI_IO_CS             (33)
+    #define ESP_PANEL_BOARD_TOUCH_SPI_CLK_HZ            (40 * 1000 * 1000)  // Should be integer divisor of 80M
+
 
 #endif // ESP_PANEL_BOARD_TOUCH_BUS_TYPE
 
@@ -190,7 +237,11 @@
  * @brief Touch panel transformation flags
  */
 #define ESP_PANEL_BOARD_TOUCH_SWAP_XY           (0)     // 0/1
+#if ESP32_3248S035C
 #define ESP_PANEL_BOARD_TOUCH_MIRROR_X          (0)     // 0/1
+#else 
+#define ESP_PANEL_BOARD_TOUCH_MIRROR_X          (1)     // 0/1
+#endif
 #define ESP_PANEL_BOARD_TOUCH_MIRROR_Y          (0)     // 0/1
 
 /**

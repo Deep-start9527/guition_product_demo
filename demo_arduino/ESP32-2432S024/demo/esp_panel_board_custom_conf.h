@@ -25,19 +25,19 @@
 //////////////////////////// Please update the following macros to configure general panel /////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define JC2432W328C     (0)
-#define JC2432W328R     (0)
-#define JC2432W328N     (1)
+#define ESP32_2432S024C     (0)
+#define ESP32_2432S024R     (1)
+#define ESP32_2432S024N     (0)
 
 /**
  * @brief Board name
  */
-#if JC2432W328C
-#define ESP_PANEL_BOARD_NAME                "custom:JC2432W328C"
-#elif JC2432W328R
-#define ESP_PANEL_BOARD_NAME                "custom:JC2432W328R"
-#elif JC2432W328N
-#define ESP_PANEL_BOARD_NAME                "custom:JC2432W328N"
+#if ESP32_2432S024C
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32_2432S024C"
+#elif ESP32_2432S024R
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32_2432S024R"
+#elif ESP32_2432S024N
+#define ESP_PANEL_BOARD_NAME                "custom:ESP32_2432S024N"
 #endif
 
 /**
@@ -116,14 +116,14 @@
  */
 #define ESP_PANEL_BOARD_LCD_COLOR_BITS          (ESP_PANEL_LCD_COLOR_BITS_RGB565)
                                                         // ESP_PANEL_LCD_COLOR_BITS_RGB565/RGB666/RGB888
-#define ESP_PANEL_BOARD_LCD_COLOR_BGR_ORDER     (0)     // 0: RGB, 1: BGR
+#define ESP_PANEL_BOARD_LCD_COLOR_BGR_ORDER     (1)     // 0: RGB, 1: BGR
 #define ESP_PANEL_BOARD_LCD_COLOR_INEVRT_BIT    (0)     // 0/1
 
 /**
  * @brief LCD transformation configuration
  */
 #define ESP_PANEL_BOARD_LCD_SWAP_XY             (0)     // 0/1
-#define ESP_PANEL_BOARD_LCD_MIRROR_X            (0)     // 0/1
+#define ESP_PANEL_BOARD_LCD_MIRROR_X            (1)     // 0/1
 #define ESP_PANEL_BOARD_LCD_MIRROR_Y            (0)     // 0/1
 #define ESP_PANEL_BOARD_LCD_GAP_X               (0)     // [0, ESP_PANEL_BOARD_WIDTH]
 #define ESP_PANEL_BOARD_LCD_GAP_Y               (0)     // [0, ESP_PANEL_BOARD_HEIGHT]
@@ -144,15 +144,15 @@
  *
  * Set to `1` to enable touch panel support, `0` to disable
  */
-#if JC2432W328C || JC2432W328R
+#if ESP32_2432S024C || ESP32_2432S024R
 #define ESP_PANEL_BOARD_USE_TOUCH               (1)
-#elif JC2432W328N
+#elif ESP32_2432S024N
 #define ESP_PANEL_BOARD_USE_TOUCH               (0)
 #endif
 
 #if ESP_PANEL_BOARD_USE_TOUCH
 
-#if JC2432W328C
+#if ESP32_2432S024C
 /**
  * @brief Touch controller selection
  */
@@ -163,7 +163,7 @@
  */
 #define ESP_PANEL_BOARD_TOUCH_BUS_TYPE          (ESP_PANEL_BUS_TYPE_I2C)
 
-#elif JC2432W328R
+#elif ESP32_2432S024R
 /**
  * @brief Touch controller selection
  */
@@ -238,11 +238,11 @@
  * @brief Touch panel transformation flags
  */
 #define ESP_PANEL_BOARD_TOUCH_SWAP_XY           (0)     // 0/1
-#define ESP_PANEL_BOARD_TOUCH_MIRROR_X          (0)     // 0/1
-#if JC2432W328C
 #define ESP_PANEL_BOARD_TOUCH_MIRROR_Y          (0)     // 0/1
-#elif JC2432W328R
-#define ESP_PANEL_BOARD_TOUCH_MIRROR_Y          (1)     // 0/1
+#if ESP32_2432S024C
+#define ESP_PANEL_BOARD_TOUCH_MIRROR_X          (0)     // 0/1
+#elif ESP32_2432S024R
+#define ESP_PANEL_BOARD_TOUCH_MIRROR_X          (1)     // 0/1
 #endif
 
 /**

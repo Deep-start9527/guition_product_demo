@@ -15,10 +15,10 @@
 
 using namespace esp_panel::drivers;
 
-#define X1      (10)
-#define X2      (220)
-#define Y1      (20)
-#define Y2      (280)
+#define X1      (20)
+#define X2      (225)
+#define Y1      (10)
+#define Y2      (290)
 
 #define LVGL_PORT_ENABLE_ROTATION_OPTIMIZED     (1)
 #define LVGL_PORT_BUFFER_NUM_MAX                (2)
@@ -662,10 +662,17 @@ static void touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data)
     /* Read data from touch controller */
     int read_touch_result = tp->readPoints(&point, 1, 0);
     if (read_touch_result > 0) {
-    #if JC2432W328R
-        data->point.x = (point.x - X1) * 240 / (X2 - X1);
-        data->point.y = (point.y - Y1) * 320 / (Y2 - Y1);
-        // printf("x: %d, y: %d \r\n", data->point.x, data->point.y);
+    #if ESP32_2432S028R
+    #if ESP_PANEL_BOARD_TOUCH_SWAP_XY
+        data->point.x = ((point.x - Y1) > 0 ? (point.x - Y1) : 0) * 320 / (Y2 - Y1);
+        data->point.y = ((point.y - X1) > 0 ? (point.y - X1) : 0) * 240 / (X2 - X1);
+        printf("x: %d, y: %d \r\n", data->point.x, data->point.y);
+    #else
+        data->point.x = ((point.x - X1) > 0 ? (point.x - X1) : 0) * 240 / (X2 - X1);
+        data->point.y = ((point.y - Y1) > 0 ? (point.y - Y1) : 0) * 320 / (Y2 - Y1);
+        // printf("x: %d, y: %d \r\n", point.x, point.y);
+    #endif
+        
     #else 
         data->point.x = point.x;
         data->point.y = point.y;
