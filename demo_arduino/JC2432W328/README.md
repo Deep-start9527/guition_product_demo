@@ -1,3 +1,7 @@
+## JC2432W328
+
+[English](README_en.md)
+
 ### 选择不同的tp
 修改`demo/esp_panel_board_custom_conf.h`
 

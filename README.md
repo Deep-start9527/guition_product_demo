@@ -1,5 +1,7 @@
 ## 这是一个GUITION公司ESP32产品点亮屏幕的demo
 
+[[English]](README_en.md)
+
 ### 如果存在README.md文件，请先阅读该文件！！！
 ### 如果存在README.md文件，请先阅读该文件！！！
 ### 如果存在README.md文件，请先阅读该文件！！！

@@ -1,4 +1,5 @@
-## JC8012P4A1C-I-W-Y
+## JC1060P470C-I
+
 
 [English](README_en.md)
 

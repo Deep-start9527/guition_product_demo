@@ -1,31 +1,30 @@
 ## ESP32-3248S035
 
-[English](README_en.md)
+[中文](README.md)
 
-### 选择不同的tp
-修改`demo/esp_panel_board_custom_conf.h`
+### Select Different TP (Touch Panel)
+Modify `demo/esp_panel_board_custom_conf.h`
 
-电容触摸：
+Capacitive Touch:
 
     #define ESP32_3248S035C     (1)
     #define ESP32_3248S035R     (0)
     #define ESP32_3248S035N     (0)
 
-电阻触摸：
+Resistive Touch:
 
     #define ESP32_3248S035C     (0)
     #define ESP32_3248S035R     (1)
     #define ESP32_3248S035N     (0)
 
-无触摸：
+No Touch:
 
     #define ESP32_3248S035C     (0)
     #define ESP32_3248S035R     (0)
     #define ESP32_3248S035N     (1)
 
+### Abnormal Screen Display Colors
+Change `#define LV_COLOR_16_SWAP 0` to `#define LV_COLOR_16_SWAP 1` in the `libraries/lv_conf.h` file.
 
-### 屏幕显示颜色异常
-将`libraries/lv_conf.h`文件中`#define LV_COLOR_16_SWAP 0`修改为`#define LV_COLOR_16_SWAP 1`
-
-### Board settings
+### Board Settings
 ![settings](ESP32-board-setting.png)
