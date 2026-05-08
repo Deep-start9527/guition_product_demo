@@ -438,7 +438,7 @@ void lcd_init(esp_lcd_panel_handle_t *panel_handle, esp_lcd_panel_io_handle_t *i
 #if JC1060P470                            
         .lane_bit_rate_mbps = 750,  
 #elif JC4880P443
-        .lane_bit_rate_mbps = 500,  
+        .lane_bit_rate_mbps = 550,  
 #elif JC8012P4A1
         .lane_bit_rate_mbps = 1000,  
 #endif
