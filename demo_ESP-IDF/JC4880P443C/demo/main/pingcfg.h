@@ -5,7 +5,7 @@
 
 /*==========屏幕引脚=========*/
 
-#define LCD_RST_PIN                 GPIO_NUM_NC
+#define LCD_RST_PIN                 GPIO_NUM_5
 #define LCD_BACKLIGHT_PIN           GPIO_NUM_23
 
 #define TP_RST_PIN                  GPIO_NUM_22
