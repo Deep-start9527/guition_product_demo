@@ -1,0 +1,7 @@
+dependencies:
+  esp_lcd_touch:
+    public: true
+    version: ^1.2.0
+  idf: '>=5.2'
+description: ESP LCD AXS15260 RGB display and I2C touch controller
+version: 1.0.0

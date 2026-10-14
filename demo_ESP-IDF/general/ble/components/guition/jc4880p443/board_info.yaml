@@ -1,0 +1,5 @@
+board: jc4880p443
+chip: esp32p4
+version: 1.0.0
+description: "JC4880P443C_I_W_Y"
+manufacturer: "Guition"

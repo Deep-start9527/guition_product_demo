@@ -1,0 +1,20 @@
+The new Guition component adapter code is licensed under the MIT License.
+
+Existing board setup files carrying SPDX-License-Identifier:
+LicenseRef-Espressif-Modified-MIT retain their original copyright and license.
+Their license is reproduced in LICENSES/LicenseRef-Espressif-Modified-MIT.txt.
+The root MIT License does not replace file-specific third-party licenses.
+
+ESP32-S3 lcd_init_commands.h files preserve initialization sequences from:
+- demo_arduino/JC3636K518, JC3636K718, JC3636W518, JC4827W543 custom headers;
+- ESP32_Display_Panel 1.0.4, BOARD_JINGCAI_ESP32_4848S040C_I_Y_3.h.
+These files retain the 2023-2025 Espressif Systems (Shanghai) CO LTD copyright
+and Apache-2.0 license, reproduced in LICENSES/Apache-2.0.txt.
+
+JC3248W535/lcd_init_commands.h derives from the local Arduino esp_bsp.c,
+copyright 2021-2024 Espressif Systems (Shanghai) CO LTD, under CC0-1.0.
+That license is reproduced in LICENSES/CC0-1.0.txt.
+Source hashes are recorded in the migration repository's board inventory.
+
+The component is currently in staged migration. Third-party drivers will be
+declared as registry dependencies or carry their original licenses when added.

@@ -1,0 +1,8 @@
+/build/
+/managed_components/
+/components/gen_bmgr_codes/
+/sdkconfig
+/sdkconfig.old
+/.venv-ble-host/
+__pycache__/
+*.pyc

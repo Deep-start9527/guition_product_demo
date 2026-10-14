@@ -1,0 +1,17 @@
+License information for esp_lcd_touch_gsl3680
+
+gsl_point_id.c carries an existing Silead notice (2010-2016) granting use
+under GNU GPL version 2 or, at your option, a later version. That notice
+is preserved verbatim. The complete GPL v2 text is provided in
+LICENSES/GPL-2.0-or-later.txt.
+
+The original esp_lcd_touch_gsl3680.c, driver declarations, algorithm header,
+controller firmware, and calibration data did not carry a license notice
+in the supplied project. Their redistribution terms have not yet been
+confirmed. This file does not grant rights to that original material.
+
+New packaging files and documentation are offered under GPL-2.0-or-later.
+That grant does not relicense the pre-existing material identified above.
+
+The publisher must resolve the original material's authorization before
+uploading this component. See NOTICE for the precise scope and provenance.

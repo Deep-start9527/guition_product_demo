@@ -1,0 +1,40 @@
+menu "Guition BLE example"
+config EXAMPLE_TOUCH_ENABLED
+    bool "Initialize and register touch input"
+    default y
+config EXAMPLE_HEX_PREFIX
+    bool "Show 0x before every HEX preview byte by default"
+    default y
+    help
+        Display bytes as 0x48 0x65 instead of 48 65. Touch screens can
+        change this display option at runtime; boards without touch use
+        this default. This setting does not change the BLE payload.
+choice EXAMPLE_SECURITY
+    prompt "NUS security mode"
+    default EXAMPLE_SECURITY_OPEN
+config EXAMPLE_SECURITY_OPEN
+    bool "No encryption required"
+config EXAMPLE_SECURITY_PASSKEY
+    bool "Authenticated encryption with fixed passkey"
+endchoice
+config EXAMPLE_PASSKEY
+    int "Six digit passkey (displayed with leading zeros)"
+    depends on EXAMPLE_SECURITY_PASSKEY
+    range 0 999999
+    default 123456
+config EXAMPLE_PERIODIC_SEND
+    bool "Send periodically when connected and subscribed"
+    default n
+config EXAMPLE_SEND_PERIOD_SECONDS
+    int "Send period in seconds"
+    depends on EXAMPLE_PERIODIC_SEND
+    range 1 3600
+    default 5
+config EXAMPLE_SEND_TEXT
+    string "Periodic send text (max 512 bytes)"
+    default "Hello from Guition"
+config EXAMPLE_COMPILE_ONLY
+    bool "Compile-only P4 sample (BLE disabled at runtime)"
+    depends on IDF_TARGET_ESP32P4
+    default n
+endmenu

@@ -1,0 +1,154 @@
+# Devices Configuration
+devices:
+  - name: audio_dac
+    chip: es8311  # Codec chip (ES8311)
+    type: audio_codec
+    config:
+      dac_enabled: true
+      sys_cfg:
+        no_mclk: true
+      dac_cfg:
+        ref_enable: true
+    peripherals:
+      - name: gpio_pa_control
+        gain: 6
+        pa_active_level: 1
+      # I2S interface for audio output
+      - name: i2s_audio_out
+
+      # I2C interface for codec control
+      - name: i2c_master
+        address: 0x30
+        frequency: 400000
+
+  - name: audio_adc
+    chip: es8311  # Codec chip (ES8311)
+    type: audio_codec
+    config:
+      adc_enabled: true
+      sys_cfg:
+        no_mclk: true
+      adc_cfg:
+        # codec_dev 2.0 label order is LSB to MSB: ADC microphone, DAC reference.
+        label: [FC, RE]
+
+    # Peripheral configuration
+    peripherals:
+      # I2S interface for audio input
+      - name: i2s_audio_in
+
+      # I2C interface for codec control
+      - name: i2c_master
+        address: 0x30
+        frequency: 400000
+
+  - name: fs_sdcard
+    type: fs_fat
+    sub_type: sdmmc
+    version: default
+    config:
+      sub_config:
+        # Use SDMMC slot 0
+        slot: SDMMC_HOST_SLOT_0
+        frequency: SDMMC_FREQ_HIGHSPEED
+        bus_width: 4
+        # If using slot 0, the pin must be configured as 0, the IO pins actually used are configured by the SDMMC driver
+        # For more details, please check https://github.com/espressif/esp-idf/blob/v5.5.1/components/esp_driver_sdmmc/src/sdmmc_host.c#L668
+        pins:
+          clk: 0
+          cmd: 0
+          d0: 0
+          d1: 0
+          d2: 0
+          d3: 0
+          d4: 0
+          d5: 0
+          d6: 0
+          d7: 0
+        ldo_chan_id: 4  # Use LDO_VO4 to power SDMMC IO
+
+  # DSI Display Device
+  - name: display_lcd
+    chip: st7701
+    type: display_lcd
+    sub_type: dsi
+    dependencies:
+      espressif/esp_lcd_st7701: "^2.0.2"
+    config:
+      reset_gpio_num: 5
+      rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
+      data_endian: LCD_RGB_DATA_ENDIAN_BIG
+      bits_per_pixel: 24
+      reset_active_high: 0
+      dbi_config:
+        virtual_channel: 0
+        lcd_cmd_bits: 8
+        lcd_param_bits: 8
+      dpi_config:
+        virtual_channel: 0
+        dpi_clk_src: MIPI_DSI_DPI_CLK_SRC_DEFAULT
+        dpi_clock_freq_mhz: 34
+        pixel_format: LCD_COLOR_PIXEL_FORMAT_RGB565
+        in_color_format: LCD_COLOR_FMT_RGB565
+        out_color_format: LCD_COLOR_FMT_RGB565
+        num_fbs: 3
+        flags:
+          use_dma2d: true
+          disable_lp: false
+        video_timing:
+          h_size: 480
+          v_size: 800
+          hsync_back_porch : 42
+          hsync_pulse_width : 12
+          hsync_front_porch : 42
+          vsync_back_porch : 8
+          vsync_pulse_width : 2
+          vsync_front_porch : 166
+    peripherals:
+    - name: ldo_mipi
+    - name: dsi_display
+
+  # Touch Panel Configuration
+  - name: lcd_touch
+    chip: gls3680
+    type: lcd_touch
+    sub_type: i2c
+    version: default
+    dependencies:
+      espressif/esp_lcd_touch_gt911: "*"
+    config:
+      # esp_lcd_panel_io_i2c_config_t fields for touch communication
+      io_i2c_config:
+        lcd_cmd_bits: 8        # Bit-width of LCD command
+      # esp_lcd_touch_config_t fields for touch configuration
+      touch_config:
+        x_max: 800  # Maximum X coordinate (BSP_LCD_H_RES)
+        y_max: 1280   # Maximum Y coordinate (BSP_LCD_V_RES)
+        rst_gpio_num: -1
+        int_gpio_num: -1  
+        flags:
+          mirror_x: false
+          mirror_y: false
+    peripherals:
+      - name: i2c_master    # I2C peripheral for touch communication
+        i2c_addr: [0xBA, 0x28]
+
+  - name: lcd_brightness
+    type: ledc_ctrl
+    version: default
+    peripherals:
+      - name: ledc_backlight
+
+  # - name: camera
+  #   type: camera
+  #   version: default
+  #   sub_type: "csi"   # The bus type: csi
+  #   config:
+  #     csi_config:
+  #       reset_io: -1
+  #       pwdn_io: -1
+  #       dont_init_ldo: true  # Using periph_ldo to manager this peripheral
+  #   peripherals:
+  #     - name: "i2c_master"
+  #       frequency: 100000
+  #     - name: ldo_mipi

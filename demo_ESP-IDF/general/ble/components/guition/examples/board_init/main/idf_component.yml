@@ -1,0 +1,4 @@
+dependencies:
+  idf: ">=6.1.0,<6.2.0"
+  guition/guition_boards: "==0.1.0"
+  espressif/esp_board_manager: "==0.7.3~1"

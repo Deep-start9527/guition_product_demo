@@ -1,0 +1,5 @@
+board: jc1060p470_i_w_y
+chip: esp32p4
+version: 1.0.0
+description: "JC1060P470C_I_W_Y (with enclosure, IP101 Ethernet)"
+manufacturer: "Guition"

@@ -1,0 +1,5 @@
+board: jc8048f550
+chip: esp32s31
+version: 1.0.0
+description: "JC8048F550C_I"
+manufacturer: "GUITION"

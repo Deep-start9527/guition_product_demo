@@ -1,0 +1,21 @@
+version: "0.1.0"
+description: "GSL3680 I2C touch driver with the Guition JC8012P4A1C firmware"
+# Licensing of the original driver and controller firmware is recorded in
+# LICENSE/NOTICE. Do not label these files MIT or Apache without authorization.
+targets:
+  - esp32p4
+dependencies:
+  idf: ">=6.1.0,<6.2.0"
+  espressif/esp_lcd_touch:
+    public: true
+    version: "==1.2.1"
+tags:
+  - lcd
+  - touch
+  - gsl3680
+files:
+  exclude:
+    - "**/build-*/**/*"
+    - "**/build_*/**/*"
+    - "**/dist/**/*"
+    - "**/*.log"

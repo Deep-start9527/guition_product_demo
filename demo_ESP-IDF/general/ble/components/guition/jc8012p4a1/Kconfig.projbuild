@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: MIT
+if ESP_BOARD_JC8012P4A1 && IDF_TARGET_ESP32P4
+
+menu "Guition JC8012P4A1 display"
+
+choice GUITION_JC8012_LCD_TYPE
+    prompt "LCD variant"
+    default GUITION_JC8012_LCD_V2
+    help
+        Select the physical screen. This switches both the existing JD9365
+        initialization table and its matching DPI clock/video timing.
+
+config GUITION_JC8012_LCD_V1
+    bool "LCD V1 (60 MHz)"
+
+config GUITION_JC8012_LCD_V2
+    bool "LCD V2 (70 MHz, default)"
+
+endchoice
+endmenu
+endif

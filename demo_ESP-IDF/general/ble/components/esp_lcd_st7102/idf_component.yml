@@ -1,0 +1,7 @@
+version: "0.2.0"
+description: "ST7102 RGB display and touch controller using ESP LCD panel IO"
+dependencies:
+  idf: ">=5.3"
+  espressif/esp_lcd_touch:
+    version: "^1.2.1"
+    public: true

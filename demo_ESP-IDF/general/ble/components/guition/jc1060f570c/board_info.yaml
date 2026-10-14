@@ -1,0 +1,5 @@
+board: jc1060f570c
+chip: esp32s31
+version: 1.0.0
+description: "JC1060F570C_I"
+manufacturer: "GUITION"

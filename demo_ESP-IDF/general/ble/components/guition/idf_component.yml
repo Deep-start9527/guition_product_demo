@@ -1,0 +1,24 @@
+version: "0.1.0"
+description: "Guition board definitions and touch adapters for ESP Board Manager"
+targets:
+  - esp32
+  - esp32c3
+  - esp32s3
+  - esp32p4
+dependencies:
+  idf: ">=6.1.0,<6.2.0"
+  espressif/esp_board_manager:
+    version: "==0.7.3~1"
+    public: true
+  espressif/esp_lcd_touch:
+    version: "==1.2.1"
+    public: true
+tags:
+  - boards
+  - guition
+  - esp_board_manager
+files:
+  exclude:
+    - "**/build-*/**/*"
+    - "**/gen_bmgr_codes/**/*"
+    - "**/*.log"

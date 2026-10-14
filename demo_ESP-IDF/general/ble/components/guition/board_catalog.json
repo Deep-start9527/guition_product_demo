@@ -1,0 +1,242 @@
+{
+  "boards": [
+    {
+      "model": "ESP32-2424S012",
+      "board": "esp32_2424s012",
+      "target": "esp32c3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "CST816S"
+      ]
+    },
+    {
+      "model": "ESP32-2432S024",
+      "board": "esp32_2432s024",
+      "target": "esp32",
+      "capacitive": true,
+      "resistive": true,
+      "default": "resistive",
+      "drivers": [
+        "CST820",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "ESP32-2432S028",
+      "board": "esp32_2432s028",
+      "target": "esp32",
+      "capacitive": true,
+      "resistive": true,
+      "default": "none",
+      "drivers": [
+        "CST820",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "ESP32-2432S032",
+      "board": "esp32_2432s032",
+      "target": "esp32",
+      "capacitive": true,
+      "resistive": true,
+      "default": "none",
+      "drivers": [
+        "GT911",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "ESP32-3248S035",
+      "board": "esp32_3248s035",
+      "target": "esp32",
+      "capacitive": true,
+      "resistive": true,
+      "default": "none",
+      "drivers": [
+        "GT911",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "ESP32-4827S043",
+      "board": "esp32_4827s043",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": true,
+      "default": "resistive",
+      "drivers": [
+        "GT911",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "ESP32-4848S040",
+      "board": "esp32_4848s040",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "ESP32-8048S043",
+      "board": "esp32_8048s043",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "ESP32-8048S050",
+      "board": "esp32_8048s050",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "ESP32-8048S070",
+      "board": "esp32_8048s070",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "JC1060P470C_I_W",
+      "board": "jc1060p470",
+      "target": "esp32p4",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "JC1060P470C_I_W_Y",
+      "board": "jc1060p470_i_w_y",
+      "target": "esp32p4",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "JC2432W328",
+      "board": "jc2432w328",
+      "target": "esp32",
+      "capacitive": true,
+      "resistive": true,
+      "default": "none",
+      "drivers": [
+        "CST820",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "JC3248W535",
+      "board": "jc3248w535",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "AXS15231B"
+      ]
+    },
+    {
+      "model": "JC3636K518",
+      "board": "jc3636k518",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "CST816S"
+      ]
+    },
+    {
+      "model": "JC3636K718",
+      "board": "jc3636k718",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "CST816S"
+      ]
+    },
+    {
+      "model": "JC3636W518",
+      "board": "jc3636w518",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "CST816S"
+      ]
+    },
+    {
+      "model": "JC4827W543",
+      "board": "jc4827w543",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": true,
+      "default": "capacitive",
+      "drivers": [
+        "GT911",
+        "XPT2046"
+      ]
+    },
+    {
+      "model": "JC4880P443C",
+      "board": "jc4880p443",
+      "target": "esp32p4",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    },
+    {
+      "model": "JC8012P4A1C",
+      "board": "jc8012p4a1",
+      "target": "esp32p4",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GSL3680"
+      ]
+    },
+    {
+      "model": "JC8048W550",
+      "board": "jc8048w550",
+      "target": "esp32s3",
+      "capacitive": true,
+      "resistive": false,
+      "default": "capacitive",
+      "drivers": [
+        "GT911"
+      ]
+    }
+  ]
+}

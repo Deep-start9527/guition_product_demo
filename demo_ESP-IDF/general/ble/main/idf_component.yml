@@ -1,0 +1,14 @@
+dependencies:
+  idf: '>=6.1.0,<6.2.0'
+  espressif/esp_board_manager: '==0.7.3~1'
+  lvgl/lvgl: '==9.6.0'
+  espressif/esp_lvgl_adapter: '==0.7.1'
+  espressif/esp_lcd_touch_gt911: '==1.2.1'
+  espressif/esp_hosted:
+    version: '==2.12.13'
+    rules:
+      - if: 'target == esp32p4'
+  espressif/esp_wifi_remote:
+    version: '==1.6.5'
+    rules:
+      - if: 'target == esp32p4'

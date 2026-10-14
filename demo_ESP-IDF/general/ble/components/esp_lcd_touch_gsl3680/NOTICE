@@ -1,0 +1,28 @@
+Provenance and release status
+=============================
+
+Source: the existing local IDF JC8012P4A1C port in this repository.
+Packaging revision: 0.1.0, 2026-10-12.
+
+- gsl_point_id.c: original Silead algorithm; existing GPL-2.0-or-later
+  notice and the entire algorithm are unchanged.
+- private_include/gsl_point_id.h: moved from include/gsl_point_id.h;
+  its original contents are unchanged, without an explicit license notice.
+- private_include/gsl3680_firmware.h: firmware table moved from the original
+  public esp_lcd_touch_gsl3680.h, preserving every offset/value in order.
+  This firmware is specific to the supplied JC8012P4A1C panel.
+- private_include/gsl3680_private.h: implementation types moved from the
+  original public header, without changing their definitions.
+- esp_lcd_touch_gsl3680.c: original runtime algorithm, calibration data,
+  reset sequence and firmware loader preserved. Includes now explicitly
+  declare build requirements. No original copyright notice was supplied.
+
+Pending publisher information: source and permission for the original
+driver, headers, controller firmware and calibration data. Do not describe
+the complete component as MIT, Apache-2.0, or entirely GPL until the missing
+terms are established. LICENSE is deliberately a scoped notice, and the
+manifest deliberately omits a blanket SPDX license identifier.
+
+The new packaging does not confer an upstream hardware or licensing
+certification. The existing P4 port was hardware-verified by the user;
+this packaging revision is checked by static checks and IDF compilation.
